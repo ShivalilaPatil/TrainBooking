@@ -1,0 +1,32 @@
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Sr No</th>
+        <th scope="col">Train Name</th>
+        <th scope="col">Train No</th>
+        <th scope="col">Train Date</th>
+        <th scope="col">From Station</th>
+        <th scope="col">To Station</th>
+      </tr>
+    </thead>
+    <tbody class="table-group-divider">
+      @for(item of allTrainData; track $index){
+        <tr>
+            <th scope="row">{{$index+1}}</th>
+            <td>{{item.trainName}}</td>
+            <td>{{item.trainNo}}</td>
+            <td>{{item.departureDate |date:'dd/MM/yyyy'}}</td>
+            <td>{{item.departureStationName}}</td>
+            <td>{{item.arrivalStationName}}</td>
+          </tr>
+      }
+      @empty{
+        <tr>
+          <td colspan="6"><h4 style="color: red;"> Could bot load the data, please refresh!!</h4>  </td>
+        </tr>
+      }
+    </tbody>
+  </table>
+
+
